@@ -1,8 +1,9 @@
 var classDataPromise = d3.json("classData.json");
     classDataPromise.then (function(student){
             console.log("worked", student); 
-        
-        intGraph(student);
+        var getSVG =
+        d3.select("#quizgrade");
+        intGraph(getSVG, student);
                                       
                                       },
                       function(err){
@@ -20,8 +21,8 @@ var graph =
         height:screen.height-margins.top-margins.bottom,
     }
     d3.select(target)
-        .attr("width",screen.width)
-        .attr("height",screen.height)
+        .attr("width", screen.width)
+        .attr("height", screen.height)
     var g = d3.select(target)
         .append("g")
         .classed("graph", true)
