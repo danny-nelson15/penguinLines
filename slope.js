@@ -28,7 +28,7 @@ var classDataPromise = d3.json("classData.json");
     classDataPromise.then (function(student){
             console.log("worked", student); 
         var getSVG =
-        d3.select("#quizgrade");
+        d3.select("#quizgrade1");
         intGraph(getSVG, student);
                                       
                                       },
@@ -116,12 +116,7 @@ var graph =
  }
  
  var drawLines = function(students,graph,target,xScale,yScale,gradeScale)
- {
-     var lineGenerator = d3.line()
-        .x(function(quiz,i){return xScale(i)})
-        .y(function(quiz){return yScale(quiz.grade)})
-        .curve(d3.curveCardinal)
-     
+ {     
      var lines = 
         target.select(".graph")
         .selectAll("g")
@@ -129,6 +124,11 @@ var graph =
         .enter()
         .append("g")
         .classed("line", true)
+        .append("line")
+        .attr("y1",function(student){return yScale(student.quizes[0].grade)})
+        .attr("y2",function(student){return yScale(student.quizes[37].grade)})
+        .attr("x1",function(student){return xScale(student.quizes[0].day)})
+        .attr("x2",function(student){return xScale(student.quizes[37].day)})
         .attr("fill","none")
         .attr("stroke",function(student)
                 {
@@ -137,7 +137,7 @@ var graph =
         .attr("stroke-width", 2)
      .on("mouseover", function(student)
         {
-         d3.selectAll(".line")
+         d3.selectAll(".line line")
             .classed("fade",true);
          
          d3.select(this)
@@ -145,46 +145,24 @@ var graph =
             .raise();
         var xPosition = d3.event.pageX;
         var yPosition = d3.event.pageY
-            d3.select("#tooltip")
+            d3.select("#tooltip1")
                 .style("left", xPosition+"px")
                 .style("top", yPosition+"px")
                 .select("img")
                 .attr("src", "imgs/"+student.picture)
-            d3.select("#tooltip")
-                .style("left", xPosition+"px")
-                .style("top", yPosition+"px")
-                .select("#value")
-                .text(getFinal(student))
-            d3.select("#tooltip")
-                .style("left", xPosition+"px")
-                .style("top", yPosition+"px")
-                .select("#value1")
-                .text(getmeanHW(student))
-            d3.select("#tooltip")
-                .style("left", xPosition+"px")
-                .style("top", yPosition+"px")
-                .select("#value2")
-                .text(getmeanQuiz(student))
-            d3.select("#tooltip")
-                .style("left", xPosition+"px")
-                .style("top", yPosition+"px")
-                .select("#value3")
-                .text(getmeanTest(student))
-         d3.select("#tooltip").classed("hidden", false)
+            
+         d3.select("#tooltip1").classed("hidden1", false)
      })
      .on("mouseout", function(student)
         {
-         d3.selectAll(".line")
+         d3.selectAll(".line line")
             .classed("fade", false)
             .classed("red",false)
-        d3.select("#tooltip").classed("hidden", true)
+        d3.select("#tooltip1").classed("hidden1", true)
      })
 
      
-     lines.append("path")
-        .datum(function(student)
-                {return student.quizes})
-        .attr("d",lineGenerator)
+    
      
  }
   

@@ -1,0 +1,78 @@
+.fade{
+    opacity: .1;
+}
+.red{
+    stroke: rebeccapurple;
+    stroke-width: 5;
+}
+#tooltip{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events: none;
+}
+#tooltip.hidden{
+    display:none;
+}
+#tooltip p{
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+img{
+ width: 90px;
+}
+#tooltip1{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events: none;
+}
+#tooltip1.hidden1{
+    display:none;
+}
+#tooltip1 p{
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+#button {
+   background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:9px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;   
+}
+
+#button:hover {
+	background-color:#5cbf2a;
+}
+#button:active {
+	position:relative;
+	top:1px;
+}
+svg{
+    padding: 3px;
+    border: 2px solid rebeccapurple;
+    cursor: pointer;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+#failure{
+    background-image: url(imgs/penguin-grill-300px.png);
+}

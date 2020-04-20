@@ -2,14 +2,23 @@
 <head>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <link rel="stylesheet" type ="text/css" href ="lines.css">
-    
+<a href="Index.html"></a>
     </head>
     <body>
+        <h1><a href="Index.html">Home</a></h1>
     <script src="lines.js"></script>
-        <svg id="quizgrade" width="500" height="400">
-        <g class="graph" transform="translate(70,15)"></g>
-        <g class="labels"></g>
+        
+        <svg id="quizgrade">
         </svg>
+        <div id="tooltip" classed="hidden">
+        <p><img></p>
+        <p>*Grade on Final: <span id="value"></span></p>
+        <p>*Average Homework Grade: <span id="value1"></span></p>
+        <p>*Average Quiz Grade: <span id="value2"></span></p>
+        <p>*Average Test Grade: <span id="value3"></span></p>
+        </div>
+
+
     </body>
     <script src="imgs/">
     
